@@ -1,1 +1,2 @@
-# salkodev.edms.go.admin
+# SalkoDev.EDMS.Go Administrator console
+Administrator UI
