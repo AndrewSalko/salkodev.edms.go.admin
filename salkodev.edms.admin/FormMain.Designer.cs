@@ -32,6 +32,8 @@ namespace salkodev.edms.admin
 			_LabelLoggedStatus = new Label();
 			_TextBoxToken = new TextBox();
 			_ButtonCopyToClipboard = new Button();
+			_ButtonCreateOrganization = new Button();
+			_TextBoxLog = new TextBox();
 			SuspendLayout();
 			// 
 			// _ButtonLogin
@@ -72,11 +74,32 @@ namespace salkodev.edms.admin
 			_ButtonCopyToClipboard.UseVisualStyleBackColor = true;
 			_ButtonCopyToClipboard.Click += _ButtonCopyToClipboard_Click;
 			// 
+			// _ButtonCreateOrganization
+			// 
+			_ButtonCreateOrganization.Location = new Point(12, 96);
+			_ButtonCreateOrganization.Name = "_ButtonCreateOrganization";
+			_ButtonCreateOrganization.Size = new Size(158, 23);
+			_ButtonCreateOrganization.TabIndex = 6;
+			_ButtonCreateOrganization.Text = "Create Organization";
+			_ButtonCreateOrganization.UseVisualStyleBackColor = true;
+			_ButtonCreateOrganization.Click += _ButtonCreateOrganization_Click;
+			// 
+			// _TextBoxLog
+			// 
+			_TextBoxLog.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			_TextBoxLog.Location = new Point(12, 209);
+			_TextBoxLog.Multiline = true;
+			_TextBoxLog.Name = "_TextBoxLog";
+			_TextBoxLog.Size = new Size(595, 152);
+			_TextBoxLog.TabIndex = 7;
+			// 
 			// FormMain
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(619, 413);
+			ClientSize = new Size(619, 402);
+			Controls.Add(_TextBoxLog);
+			Controls.Add(_ButtonCreateOrganization);
 			Controls.Add(_ButtonCopyToClipboard);
 			Controls.Add(_TextBoxToken);
 			Controls.Add(_LabelLoggedStatus);
@@ -94,5 +117,7 @@ namespace salkodev.edms.admin
 		private Label _LabelLoggedStatus;
 		private TextBox _TextBoxToken;
 		private Button _ButtonCopyToClipboard;
+		private Button _ButtonCreateOrganization;
+		private TextBox _TextBoxLog;
 	}
 }

@@ -21,5 +21,10 @@ namespace salkodev.edms.admin.BaseWeb
 			get;
 		}
 
+		/// <summary>
+		/// Налаштує HttpClient на роботу з JWT-токеном
+		/// </summary>
+		void AuthJWT(string authToken);
+
 	}
 }
