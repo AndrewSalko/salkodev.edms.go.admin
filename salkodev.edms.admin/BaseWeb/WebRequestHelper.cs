@@ -31,7 +31,18 @@ namespace salkodev.edms.admin.BaseWeb
 			}
 		}
 
-		public static string MakeRequest(HttpClient httpClient, string url, string requestParameters, string token, out HttpStatusCode resultCode)
+		public static string MakePostRequest(HttpClient httpClient, string url, string requestParameters, string token, out HttpStatusCode resultCode)
+		{
+			return MakeRequest(httpClient, HttpMethod.Post, url, requestParameters, token, out resultCode);
+		}
+
+		public static string MakeDelRequest(HttpClient httpClient, string url, string requestParameters, string token, out HttpStatusCode resultCode)
+		{
+			return MakeRequest(httpClient, HttpMethod.Delete, url, requestParameters, token, out resultCode);
+		}
+
+
+		public static string MakeRequest(HttpClient httpClient, HttpMethod method, string url, string requestParameters, string token, out HttpStatusCode resultCode)
 		{
 			HttpResponseMessage responseMessage = null;
 
@@ -39,7 +50,7 @@ namespace salkodev.edms.admin.BaseWeb
 
 			PrepareClient(httpClient, token);
 
-			var request = new HttpRequestMessage(HttpMethod.Post, uri.Uri);
+			var request = new HttpRequestMessage(method, uri.Uri);
 			request.Content = new StringContent(requestParameters, Encoding.UTF8, "application/json");
 
 			responseMessage = httpClient.SendAsync(request).Result;

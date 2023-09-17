@@ -5,6 +5,7 @@ using System.Net;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using salkodev.edms.admin.BaseWeb;
 using salkodev.edms.admin.Login;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -13,7 +14,8 @@ namespace salkodev.edms.admin.Orgs
 {
 	class OrganizationsManager
 	{
-		const string _URL = "orgs/create";
+		const string _URL_CREATE = "orgs/create";
+		const string _URL_DELETE = "orgs/delete";
 
 		IHttpClientHub _HttpClientHub;
 
@@ -41,8 +43,8 @@ namespace salkodev.edms.admin.Orgs
 
 			string reqJson = req.Serialize();
 
-			string url = WebRequestHelper.GetURL(_HttpClientHub.BaseURL, _URL);
-			string jsonResult = WebRequestHelper.MakeRequest(_HttpClientHub.Client, url, reqJson, null, out HttpStatusCode resultCode);
+			string url = WebRequestHelper.GetURL(_HttpClientHub.BaseURL, _URL_CREATE);
+			string jsonResult = WebRequestHelper.MakePostRequest(_HttpClientHub.Client, url, reqJson, null, out HttpStatusCode resultCode);
 
 			if (resultCode != HttpStatusCode.OK)
 			{
@@ -52,6 +54,25 @@ namespace salkodev.edms.admin.Orgs
 			var resp = ResultUID.Deserialize(jsonResult);
 
 			return resp.UID;
+		}//Create
+
+
+		public string Delete(string uid)
+		{
+			var req=new UIDRequest();
+			req.UID = uid;
+
+			string reqJson = req.Serialize();
+
+			string url = WebRequestHelper.GetURL(_HttpClientHub.BaseURL, _URL_DELETE);
+			string jsonResult = WebRequestHelper.MakeDelRequest(_HttpClientHub.Client, url, reqJson, null, out HttpStatusCode resultCode);
+
+			if (resultCode != HttpStatusCode.OK)
+			{
+				throw new ApplicationException(jsonResult);
+			}
+
+			return jsonResult;
 		}
 
 	}

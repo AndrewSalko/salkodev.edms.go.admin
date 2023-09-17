@@ -34,6 +34,7 @@ namespace salkodev.edms.admin
 			_ButtonCopyToClipboard = new Button();
 			_ButtonCreateOrganization = new Button();
 			_TextBoxLog = new TextBox();
+			_ButtonDeleteOrganization = new Button();
 			SuspendLayout();
 			// 
 			// _ButtonLogin
@@ -93,11 +94,22 @@ namespace salkodev.edms.admin
 			_TextBoxLog.Size = new Size(595, 152);
 			_TextBoxLog.TabIndex = 7;
 			// 
+			// _ButtonDeleteOrganization
+			// 
+			_ButtonDeleteOrganization.Location = new Point(186, 96);
+			_ButtonDeleteOrganization.Name = "_ButtonDeleteOrganization";
+			_ButtonDeleteOrganization.Size = new Size(105, 23);
+			_ButtonDeleteOrganization.TabIndex = 8;
+			_ButtonDeleteOrganization.Text = "Delete Org";
+			_ButtonDeleteOrganization.UseVisualStyleBackColor = true;
+			_ButtonDeleteOrganization.Click += _ButtonDeleteOrganization_Click;
+			// 
 			// FormMain
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(619, 402);
+			Controls.Add(_ButtonDeleteOrganization);
 			Controls.Add(_TextBoxLog);
 			Controls.Add(_ButtonCreateOrganization);
 			Controls.Add(_ButtonCopyToClipboard);
@@ -119,5 +131,6 @@ namespace salkodev.edms.admin
 		private Button _ButtonCopyToClipboard;
 		private Button _ButtonCreateOrganization;
 		private TextBox _TextBoxLog;
+		private Button _ButtonDeleteOrganization;
 	}
 }

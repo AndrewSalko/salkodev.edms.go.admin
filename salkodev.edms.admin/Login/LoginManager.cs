@@ -28,7 +28,7 @@ namespace salkodev.edms.admin.Login
 			string reqJson = req.Serialize();
 
 			string url = WebRequestHelper.GetURL(_HttpClientHub.BaseURL, _URL);
-			string jsonResult = WebRequestHelper.MakeRequest(_HttpClientHub.Client, url, reqJson, null, out HttpStatusCode resultCode);
+			string jsonResult = WebRequestHelper.MakePostRequest(_HttpClientHub.Client, url, reqJson, null, out HttpStatusCode resultCode);
 
 			if (resultCode != HttpStatusCode.OK)
 			{

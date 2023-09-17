@@ -92,5 +92,29 @@ namespace salkodev.edms.admin
 			_TextBoxLog.AppendText(msg);
 		}
 
+		private void _ButtonDeleteOrganization_Click(object sender, EventArgs e)
+		{
+			var uidForm = new UIDForm();
+			uidForm.MainCaption = "Organization delete";
+
+			if (uidForm.ShowDialog(this) != DialogResult.OK)
+			{
+				return;
+			}
+
+			try
+			{
+				_HttpClientHub.AuthJWT(_Token);
+
+				var orgManager = new Orgs.OrganizationsManager(_HttpClientHub);
+				string respJson = orgManager.Delete(uidForm.UID);
+
+				_Log($"Org deleted: {respJson}");
+			}
+			catch (Exception ex)
+			{
+				ErrorUI.ShowException(this, ex);
+			}
+		}
 	}
 }
