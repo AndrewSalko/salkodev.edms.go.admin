@@ -35,6 +35,9 @@ namespace salkodev.edms.admin
 			_ButtonCreateOrganization = new Button();
 			_TextBoxLog = new TextBox();
 			_ButtonDeleteOrganization = new Button();
+			_GroupBoxOrgs = new GroupBox();
+			_ButtonModifyOrganization = new Button();
+			_GroupBoxOrgs.SuspendLayout();
 			SuspendLayout();
 			// 
 			// _ButtonLogin
@@ -61,13 +64,13 @@ namespace salkodev.edms.admin
 			_TextBoxToken.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			_TextBoxToken.Location = new Point(117, 13);
 			_TextBoxToken.Name = "_TextBoxToken";
-			_TextBoxToken.Size = new Size(409, 23);
+			_TextBoxToken.Size = new Size(682, 23);
 			_TextBoxToken.TabIndex = 2;
 			// 
 			// _ButtonCopyToClipboard
 			// 
 			_ButtonCopyToClipboard.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-			_ButtonCopyToClipboard.Location = new Point(532, 13);
+			_ButtonCopyToClipboard.Location = new Point(805, 13);
 			_ButtonCopyToClipboard.Name = "_ButtonCopyToClipboard";
 			_ButtonCopyToClipboard.Size = new Size(75, 23);
 			_ButtonCopyToClipboard.TabIndex = 5;
@@ -77,7 +80,7 @@ namespace salkodev.edms.admin
 			// 
 			// _ButtonCreateOrganization
 			// 
-			_ButtonCreateOrganization.Location = new Point(12, 96);
+			_ButtonCreateOrganization.Location = new Point(15, 32);
 			_ButtonCreateOrganization.Name = "_ButtonCreateOrganization";
 			_ButtonCreateOrganization.Size = new Size(158, 23);
 			_ButtonCreateOrganization.TabIndex = 6;
@@ -88,30 +91,51 @@ namespace salkodev.edms.admin
 			// _TextBoxLog
 			// 
 			_TextBoxLog.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-			_TextBoxLog.Location = new Point(12, 209);
+			_TextBoxLog.Location = new Point(12, 436);
 			_TextBoxLog.Multiline = true;
 			_TextBoxLog.Name = "_TextBoxLog";
-			_TextBoxLog.Size = new Size(595, 152);
+			_TextBoxLog.Size = new Size(868, 152);
 			_TextBoxLog.TabIndex = 7;
 			// 
 			// _ButtonDeleteOrganization
 			// 
-			_ButtonDeleteOrganization.Location = new Point(186, 96);
+			_ButtonDeleteOrganization.Location = new Point(179, 32);
 			_ButtonDeleteOrganization.Name = "_ButtonDeleteOrganization";
-			_ButtonDeleteOrganization.Size = new Size(105, 23);
+			_ButtonDeleteOrganization.Size = new Size(71, 23);
 			_ButtonDeleteOrganization.TabIndex = 8;
-			_ButtonDeleteOrganization.Text = "Delete Org";
+			_ButtonDeleteOrganization.Text = "Delete";
 			_ButtonDeleteOrganization.UseVisualStyleBackColor = true;
 			_ButtonDeleteOrganization.Click += _ButtonDeleteOrganization_Click;
+			// 
+			// _GroupBoxOrgs
+			// 
+			_GroupBoxOrgs.Controls.Add(_ButtonModifyOrganization);
+			_GroupBoxOrgs.Controls.Add(_ButtonCreateOrganization);
+			_GroupBoxOrgs.Controls.Add(_ButtonDeleteOrganization);
+			_GroupBoxOrgs.Location = new Point(12, 81);
+			_GroupBoxOrgs.Name = "_GroupBoxOrgs";
+			_GroupBoxOrgs.Size = new Size(446, 117);
+			_GroupBoxOrgs.TabIndex = 9;
+			_GroupBoxOrgs.TabStop = false;
+			_GroupBoxOrgs.Text = "Organizations";
+			// 
+			// _ButtonModifyOrganization
+			// 
+			_ButtonModifyOrganization.Location = new Point(256, 32);
+			_ButtonModifyOrganization.Name = "_ButtonModifyOrganization";
+			_ButtonModifyOrganization.Size = new Size(75, 23);
+			_ButtonModifyOrganization.TabIndex = 9;
+			_ButtonModifyOrganization.Text = "Modify";
+			_ButtonModifyOrganization.UseVisualStyleBackColor = true;
+			_ButtonModifyOrganization.Click += _ButtonModifyOrganization_Click;
 			// 
 			// FormMain
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(619, 402);
-			Controls.Add(_ButtonDeleteOrganization);
+			ClientSize = new Size(892, 629);
+			Controls.Add(_GroupBoxOrgs);
 			Controls.Add(_TextBoxLog);
-			Controls.Add(_ButtonCreateOrganization);
 			Controls.Add(_ButtonCopyToClipboard);
 			Controls.Add(_TextBoxToken);
 			Controls.Add(_LabelLoggedStatus);
@@ -119,6 +143,7 @@ namespace salkodev.edms.admin
 			Name = "FormMain";
 			Text = "SalkoDev.EDMS Administrator";
 			Load += _FormMain_Load;
+			_GroupBoxOrgs.ResumeLayout(false);
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -132,5 +157,7 @@ namespace salkodev.edms.admin
 		private Button _ButtonCreateOrganization;
 		private TextBox _TextBoxLog;
 		private Button _ButtonDeleteOrganization;
+		private GroupBox _GroupBoxOrgs;
+		private Button _ButtonModifyOrganization;
 	}
 }

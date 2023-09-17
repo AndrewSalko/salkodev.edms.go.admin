@@ -4,7 +4,7 @@ using salkodev.edms.admin.Login;
 
 namespace salkodev.edms.admin
 {
-	public partial class FormMain : Form
+	public partial class FormMain : Form, ILogger
 	{
 		IHttpClientHub _HttpClientHub;
 
@@ -59,30 +59,23 @@ namespace salkodev.edms.admin
 
 		void _ButtonCreateOrganization_Click(object sender, EventArgs e)
 		{
-			var orgCreateForm = new Orgs.CreateOrgForm();
-
-			if (orgCreateForm.ShowDialog(this) != DialogResult.OK)
-			{
-				return;
-			}
-
-			try
-			{
-				_HttpClientHub.AuthJWT(_Token);
-
-				var orgManager = new Orgs.OrganizationsManager(_HttpClientHub);
-				string uid = orgManager.Create(orgCreateForm.UID, orgCreateForm.OrgName, orgCreateForm.Description, orgCreateForm.OwnerUID);
-
-				_Log($"Org created - uid:{uid}");
-			}
-			catch (Exception ex)
-			{
-				ErrorUI.ShowException(this, ex);
-			}
+			var orgCreate=new Orgs.OrgCreate(this,this,_HttpClientHub, _Token);
+			orgCreate.Perform();
 		}
 
+		void _ButtonDeleteOrganization_Click(object sender, EventArgs e)
+		{
+			var orgDel = new Orgs.OrgDelete(this, this, _HttpClientHub, _Token);
+			orgDel.Perform();
+		}
 
-		void _Log(string msg)
+		void _ButtonModifyOrganization_Click(object sender, EventArgs e)
+		{
+			var orgModify = new Orgs.OrgModify(this, this, _HttpClientHub, _Token);
+			orgModify.Perform();
+		}
+
+		public void Log(string msg)
 		{
 			if (!string.IsNullOrEmpty(_TextBoxLog.Text))
 			{
@@ -92,29 +85,5 @@ namespace salkodev.edms.admin
 			_TextBoxLog.AppendText(msg);
 		}
 
-		private void _ButtonDeleteOrganization_Click(object sender, EventArgs e)
-		{
-			var uidForm = new UIDForm();
-			uidForm.MainCaption = "Organization delete";
-
-			if (uidForm.ShowDialog(this) != DialogResult.OK)
-			{
-				return;
-			}
-
-			try
-			{
-				_HttpClientHub.AuthJWT(_Token);
-
-				var orgManager = new Orgs.OrganizationsManager(_HttpClientHub);
-				string respJson = orgManager.Delete(uidForm.UID);
-
-				_Log($"Org deleted: {respJson}");
-			}
-			catch (Exception ex)
-			{
-				ErrorUI.ShowException(this, ex);
-			}
-		}
 	}
 }
