@@ -17,14 +17,72 @@ namespace salkodev.edms.admin.Orgs
 			InitializeComponent();
 		}
 
-		public string OrgName => _TextBoxName.Text;
+		public string OrgName
+		{
+			get
+			{
+				return _TextBoxName.Text;
+			}
+			set
+			{
+				_TextBoxName.Text = value;
+			}
+		}
 
-		public string Description => _TextBoxDescr.Text;
+		public string Description
+		{
+			get
+			{
+				return _TextBoxDescr.Text;
+			}
+			set
+			{
+				_TextBoxDescr.Text = value;
+			}
+		}
 
-		public string UID => _TextBoxUID.Text;
+		public string UID
+		{
+			get
+			{
+				return _TextBoxUID.Text;
+			}
+			set
+			{
+				_TextBoxUID.Text = value;
+			}
+		}
 
-		public string OwnerUID => _TextBoxOwnerUID.Text;
+		public string OwnerUID
+		{
+			get
+			{
+				return _TextBoxOwnerUID.Text;
+			}
+			set
+			{
+				_TextBoxOwnerUID.Text = value;
+			}
+		}
 
 
+		/// <summary>
+		/// Встановіть true якщо режим "модифікації"
+		/// </summary>
+		public bool ModifyMode
+		{
+			get;
+			set;
+		}
+
+		void CreateOrgForm_Load(object sender, EventArgs e)
+		{
+			if (ModifyMode)
+			{
+				Text = "Modification";
+				_TextBoxUID.ReadOnly = true;
+			}
+
+		}
 	}
 }

@@ -152,6 +152,7 @@
 			Name = "CreateOrgForm";
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Create Organization";
+			Load += CreateOrgForm_Load;
 			ResumeLayout(false);
 			PerformLayout();
 		}

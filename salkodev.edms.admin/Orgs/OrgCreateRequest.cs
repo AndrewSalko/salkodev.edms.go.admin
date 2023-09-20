@@ -42,7 +42,7 @@ namespace salkodev.edms.admin.Orgs
 		}
 
 
-		public string Serialize()
+		public virtual string Serialize()
 		{
 			var json = JsonConvert.SerializeObject(this);
 			return json;
