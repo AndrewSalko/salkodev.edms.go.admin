@@ -59,7 +59,7 @@ namespace salkodev.edms.admin
 
 		void _ButtonCreateOrganization_Click(object sender, EventArgs e)
 		{
-			var orgCreate=new Orgs.OrgCreate(this,this,_HttpClientHub, _Token);
+			var orgCreate = new Orgs.OrgCreate(this, this, _HttpClientHub, _Token);
 			orgCreate.Perform();
 		}
 
@@ -85,5 +85,22 @@ namespace salkodev.edms.admin
 			_TextBoxLog.AppendText(msg);
 		}
 
+		private void _ButtonCreateDepartment_Click(object sender, EventArgs e)
+		{
+			var depCreate = new Departments.DepartmentCreate(this, this, _HttpClientHub, _Token);
+			depCreate.Perform();
+		}
+
+		private void _ButtonDeleteDepartment_Click(object sender, EventArgs e)
+		{
+			var depDel = new Departments.DepartmentDelete(this, this, _HttpClientHub, _Token);
+			depDel.Perform();
+		}
+
+		private void _ButtonModifyDepartment_Click(object sender, EventArgs e)
+		{
+			var depModify = new Departments.DepartmentModify(this, this, _HttpClientHub, _Token);
+			depModify.Perform();
+		}
 	}
 }

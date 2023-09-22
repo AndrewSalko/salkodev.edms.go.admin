@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace salkodev.edms.admin.Orgs
+namespace salkodev.edms.admin.Departments
 {
-	public partial class CreateOrgForm : Form
+	public partial class CreateDepartmentForm : Form
 	{
-		public CreateOrgForm()
+		public CreateDepartmentForm()
 		{
 			InitializeComponent();
 		}
 
-		public string OrgName
+		public string DepartmentName
 		{
 			get
 			{
@@ -53,18 +53,17 @@ namespace salkodev.edms.admin.Orgs
 			}
 		}
 
-		public string OwnerUID
+		public string OrganizationUID
 		{
 			get
 			{
-				return _OwnerUIDControl.Text;
+				return _OrgUIDControl.OrganizationUID;
 			}
 			set
 			{
-				_OwnerUIDControl.Text = value;
+				_OrgUIDControl.OrganizationUID = value;
 			}
 		}
-
 
 		/// <summary>
 		/// Встановіть true якщо режим "модифікації"
@@ -75,14 +74,14 @@ namespace salkodev.edms.admin.Orgs
 			set;
 		}
 
-		void _CreateOrgForm_Load(object sender, EventArgs e)
+		private void _CreateDepartmentForm_Load(object sender, EventArgs e)
 		{
 			if (ModifyMode)
 			{
-				Text = "Modification";
+				Text = "Department Modification";
 				_UidNameDescrControl.UIDReadOnly = true;
 			}
-
 		}
+
 	}
 }

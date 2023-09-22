@@ -1,6 +1,6 @@
-namespace salkodev.edms.admin.Orgs
+﻿namespace salkodev.edms.admin.Departments
 {
-	partial class CreateOrgForm
+	partial class CreateDepartmentForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -31,17 +31,17 @@ namespace salkodev.edms.admin.Orgs
 			_ButtonCancel = new Button();
 			_ButtonOK = new Button();
 			_UidNameDescrControl = new UIDNameDescrControl();
-			_OwnerUIDControl = new OwnerUIDControl();
+			_OrgUIDControl = new OrgUIDControl();
 			SuspendLayout();
 			// 
 			// _ButtonCancel
 			// 
 			_ButtonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 			_ButtonCancel.DialogResult = DialogResult.Cancel;
-			_ButtonCancel.Location = new Point(401, 192);
+			_ButtonCancel.Location = new Point(426, 163);
 			_ButtonCancel.Name = "_ButtonCancel";
 			_ButtonCancel.Size = new Size(75, 23);
-			_ButtonCancel.TabIndex = 27;
+			_ButtonCancel.TabIndex = 29;
 			_ButtonCancel.Text = "Cancel";
 			_ButtonCancel.UseVisualStyleBackColor = true;
 			// 
@@ -49,10 +49,10 @@ namespace salkodev.edms.admin.Orgs
 			// 
 			_ButtonOK.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 			_ButtonOK.DialogResult = DialogResult.OK;
-			_ButtonOK.Location = new Point(320, 192);
+			_ButtonOK.Location = new Point(345, 163);
 			_ButtonOK.Name = "_ButtonOK";
 			_ButtonOK.Size = new Size(75, 23);
-			_ButtonOK.TabIndex = 25;
+			_ButtonOK.TabIndex = 28;
 			_ButtonOK.Text = "OK";
 			_ButtonOK.UseVisualStyleBackColor = true;
 			// 
@@ -63,36 +63,37 @@ namespace salkodev.edms.admin.Orgs
 			_UidNameDescrControl.DisplayName = "";
 			_UidNameDescrControl.Location = new Point(12, 12);
 			_UidNameDescrControl.Name = "_UidNameDescrControl";
-			_UidNameDescrControl.Size = new Size(464, 93);
-			_UidNameDescrControl.TabIndex = 28;
+			_UidNameDescrControl.Size = new Size(489, 93);
+			_UidNameDescrControl.TabIndex = 30;
 			_UidNameDescrControl.UID = "";
 			_UidNameDescrControl.UIDReadOnly = false;
 			// 
-			// _OwnerUIDControl
+			// _OrgUIDControl
 			// 
-			_OwnerUIDControl.Location = new Point(12, 105);
-			_OwnerUIDControl.Name = "_OwnerUIDControl";
-			_OwnerUIDControl.OwnerUID = "";
-			_OwnerUIDControl.Size = new Size(464, 31);
-			_OwnerUIDControl.TabIndex = 29;
+			_OrgUIDControl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			_OrgUIDControl.Location = new Point(12, 111);
+			_OrgUIDControl.Name = "_OrgUIDControl";
+			_OrgUIDControl.OrganizationUID = "";
+			_OrgUIDControl.Size = new Size(489, 32);
+			_OrgUIDControl.TabIndex = 31;
 			// 
-			// CreateOrgForm
+			// CreateDepartmentForm
 			// 
 			AcceptButton = _ButtonOK;
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			CancelButton = _ButtonCancel;
-			ClientSize = new Size(488, 227);
-			Controls.Add(_OwnerUIDControl);
+			ClientSize = new Size(513, 198);
+			Controls.Add(_OrgUIDControl);
 			Controls.Add(_UidNameDescrControl);
 			Controls.Add(_ButtonCancel);
 			Controls.Add(_ButtonOK);
 			MaximizeBox = false;
 			MinimizeBox = false;
-			Name = "CreateOrgForm";
+			Name = "CreateDepartmentForm";
 			StartPosition = FormStartPosition.CenterParent;
-			Text = "Create Organization";
-			Load += _CreateOrgForm_Load;
+			Text = "Create Department";
+			Load += _CreateDepartmentForm_Load;
 			ResumeLayout(false);
 		}
 
@@ -101,6 +102,6 @@ namespace salkodev.edms.admin.Orgs
 		private Button _ButtonCancel;
 		private Button _ButtonOK;
 		private UIDNameDescrControl _UidNameDescrControl;
-		private OwnerUIDControl _OwnerUIDControl;
+		private OrgUIDControl _OrgUIDControl;
 	}
 }

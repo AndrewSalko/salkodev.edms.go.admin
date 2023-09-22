@@ -30,7 +30,7 @@ namespace salkodev.edms.admin.Orgs
 			var orgManager = new Orgs.OrganizationsManager(_HttpClientHub);
 
 			//завантажимо наявні дані про організацію...
-			var org = orgManager.Read(uid);
+			var org = orgManager.Read<OrgModifyRequest>(uid);
 
 			var orgCreateForm = new Orgs.CreateOrgForm();
 			orgCreateForm.ModifyMode = true;

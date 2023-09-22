@@ -37,7 +37,12 @@ namespace salkodev.edms.admin
 			_ButtonDeleteOrganization = new Button();
 			_GroupBoxOrgs = new GroupBox();
 			_ButtonModifyOrganization = new Button();
+			_GroupBoxDepartments = new GroupBox();
+			_ButtonCreateDepartment = new Button();
+			_ButtonDeleteDepartment = new Button();
+			_ButtonModifyDepartment = new Button();
 			_GroupBoxOrgs.SuspendLayout();
+			_GroupBoxDepartments.SuspendLayout();
 			SuspendLayout();
 			// 
 			// _ButtonLogin
@@ -64,13 +69,13 @@ namespace salkodev.edms.admin
 			_TextBoxToken.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			_TextBoxToken.Location = new Point(117, 13);
 			_TextBoxToken.Name = "_TextBoxToken";
-			_TextBoxToken.Size = new Size(682, 23);
+			_TextBoxToken.Size = new Size(696, 23);
 			_TextBoxToken.TabIndex = 2;
 			// 
 			// _ButtonCopyToClipboard
 			// 
 			_ButtonCopyToClipboard.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-			_ButtonCopyToClipboard.Location = new Point(805, 13);
+			_ButtonCopyToClipboard.Location = new Point(819, 13);
 			_ButtonCopyToClipboard.Name = "_ButtonCopyToClipboard";
 			_ButtonCopyToClipboard.Size = new Size(75, 23);
 			_ButtonCopyToClipboard.TabIndex = 5;
@@ -94,7 +99,7 @@ namespace salkodev.edms.admin
 			_TextBoxLog.Location = new Point(12, 436);
 			_TextBoxLog.Multiline = true;
 			_TextBoxLog.Name = "_TextBoxLog";
-			_TextBoxLog.Size = new Size(868, 152);
+			_TextBoxLog.Size = new Size(882, 152);
 			_TextBoxLog.TabIndex = 7;
 			// 
 			// _ButtonDeleteOrganization
@@ -114,7 +119,7 @@ namespace salkodev.edms.admin
 			_GroupBoxOrgs.Controls.Add(_ButtonDeleteOrganization);
 			_GroupBoxOrgs.Location = new Point(12, 81);
 			_GroupBoxOrgs.Name = "_GroupBoxOrgs";
-			_GroupBoxOrgs.Size = new Size(446, 117);
+			_GroupBoxOrgs.Size = new Size(352, 88);
 			_GroupBoxOrgs.TabIndex = 9;
 			_GroupBoxOrgs.TabStop = false;
 			_GroupBoxOrgs.Text = "Organizations";
@@ -129,11 +134,54 @@ namespace salkodev.edms.admin
 			_ButtonModifyOrganization.UseVisualStyleBackColor = true;
 			_ButtonModifyOrganization.Click += _ButtonModifyOrganization_Click;
 			// 
+			// _GroupBoxDepartments
+			// 
+			_GroupBoxDepartments.Controls.Add(_ButtonModifyDepartment);
+			_GroupBoxDepartments.Controls.Add(_ButtonDeleteDepartment);
+			_GroupBoxDepartments.Controls.Add(_ButtonCreateDepartment);
+			_GroupBoxDepartments.Location = new Point(380, 81);
+			_GroupBoxDepartments.Name = "_GroupBoxDepartments";
+			_GroupBoxDepartments.Size = new Size(330, 88);
+			_GroupBoxDepartments.TabIndex = 10;
+			_GroupBoxDepartments.TabStop = false;
+			_GroupBoxDepartments.Text = "Departments";
+			// 
+			// _ButtonCreateDepartment
+			// 
+			_ButtonCreateDepartment.Location = new Point(6, 22);
+			_ButtonCreateDepartment.Name = "_ButtonCreateDepartment";
+			_ButtonCreateDepartment.Size = new Size(137, 23);
+			_ButtonCreateDepartment.TabIndex = 0;
+			_ButtonCreateDepartment.Text = "Create department";
+			_ButtonCreateDepartment.UseVisualStyleBackColor = true;
+			_ButtonCreateDepartment.Click += _ButtonCreateDepartment_Click;
+			// 
+			// _ButtonDeleteDepartment
+			// 
+			_ButtonDeleteDepartment.Location = new Point(152, 22);
+			_ButtonDeleteDepartment.Name = "_ButtonDeleteDepartment";
+			_ButtonDeleteDepartment.Size = new Size(75, 23);
+			_ButtonDeleteDepartment.TabIndex = 1;
+			_ButtonDeleteDepartment.Text = "Delete";
+			_ButtonDeleteDepartment.UseVisualStyleBackColor = true;
+			_ButtonDeleteDepartment.Click += _ButtonDeleteDepartment_Click;
+			// 
+			// _ButtonModifyDepartment
+			// 
+			_ButtonModifyDepartment.Location = new Point(233, 21);
+			_ButtonModifyDepartment.Name = "_ButtonModifyDepartment";
+			_ButtonModifyDepartment.Size = new Size(75, 23);
+			_ButtonModifyDepartment.TabIndex = 2;
+			_ButtonModifyDepartment.Text = "Modify";
+			_ButtonModifyDepartment.UseVisualStyleBackColor = true;
+			_ButtonModifyDepartment.Click += _ButtonModifyDepartment_Click;
+			// 
 			// FormMain
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(892, 629);
+			ClientSize = new Size(906, 629);
+			Controls.Add(_GroupBoxDepartments);
 			Controls.Add(_GroupBoxOrgs);
 			Controls.Add(_TextBoxLog);
 			Controls.Add(_ButtonCopyToClipboard);
@@ -144,6 +192,7 @@ namespace salkodev.edms.admin
 			Text = "SalkoDev.EDMS Administrator";
 			Load += _FormMain_Load;
 			_GroupBoxOrgs.ResumeLayout(false);
+			_GroupBoxDepartments.ResumeLayout(false);
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -159,5 +208,9 @@ namespace salkodev.edms.admin
 		private Button _ButtonDeleteOrganization;
 		private GroupBox _GroupBoxOrgs;
 		private Button _ButtonModifyOrganization;
+		private GroupBox _GroupBoxDepartments;
+		private Button _ButtonDeleteDepartment;
+		private Button _ButtonCreateDepartment;
+		private Button _ButtonModifyDepartment;
 	}
 }
