@@ -102,5 +102,16 @@ namespace salkodev.edms.admin
 			var depModify = new Departments.DepartmentModify(this, this, _HttpClientHub, _Token);
 			depModify.Perform();
 		}
+
+		private void _ExitToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Close();
+		}
+
+		private void _CreateTestOrgsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var massOrgsCreator = new Orgs.MassCreate.OrgCreator(this, this, _HttpClientHub, _Token);
+			massOrgsCreator.Perform();
+		}
 	}
 }

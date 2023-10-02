@@ -38,16 +38,22 @@ namespace salkodev.edms.admin
 			_GroupBoxOrgs = new GroupBox();
 			_ButtonModifyOrganization = new Button();
 			_GroupBoxDepartments = new GroupBox();
-			_ButtonCreateDepartment = new Button();
-			_ButtonDeleteDepartment = new Button();
 			_ButtonModifyDepartment = new Button();
+			_ButtonDeleteDepartment = new Button();
+			_ButtonCreateDepartment = new Button();
+			_MenuStrip = new MenuStrip();
+			_FileToolStripMenuItem = new ToolStripMenuItem();
+			_ExitToolStripMenuItem = new ToolStripMenuItem();
+			organizationsToolStripMenuItem = new ToolStripMenuItem();
+			_CreateTestOrgsToolStripMenuItem = new ToolStripMenuItem();
 			_GroupBoxOrgs.SuspendLayout();
 			_GroupBoxDepartments.SuspendLayout();
+			_MenuStrip.SuspendLayout();
 			SuspendLayout();
 			// 
 			// _ButtonLogin
 			// 
-			_ButtonLogin.Location = new Point(12, 12);
+			_ButtonLogin.Location = new Point(12, 31);
 			_ButtonLogin.Name = "_ButtonLogin";
 			_ButtonLogin.Size = new Size(75, 23);
 			_ButtonLogin.TabIndex = 0;
@@ -58,7 +64,7 @@ namespace salkodev.edms.admin
 			// _LabelLoggedStatus
 			// 
 			_LabelLoggedStatus.AutoSize = true;
-			_LabelLoggedStatus.Location = new Point(117, 39);
+			_LabelLoggedStatus.Location = new Point(117, 58);
 			_LabelLoggedStatus.Name = "_LabelLoggedStatus";
 			_LabelLoggedStatus.Size = new Size(50, 15);
 			_LabelLoggedStatus.TabIndex = 4;
@@ -67,7 +73,7 @@ namespace salkodev.edms.admin
 			// _TextBoxToken
 			// 
 			_TextBoxToken.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-			_TextBoxToken.Location = new Point(117, 13);
+			_TextBoxToken.Location = new Point(117, 32);
 			_TextBoxToken.Name = "_TextBoxToken";
 			_TextBoxToken.Size = new Size(696, 23);
 			_TextBoxToken.TabIndex = 2;
@@ -75,7 +81,7 @@ namespace salkodev.edms.admin
 			// _ButtonCopyToClipboard
 			// 
 			_ButtonCopyToClipboard.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-			_ButtonCopyToClipboard.Location = new Point(819, 13);
+			_ButtonCopyToClipboard.Location = new Point(819, 32);
 			_ButtonCopyToClipboard.Name = "_ButtonCopyToClipboard";
 			_ButtonCopyToClipboard.Size = new Size(75, 23);
 			_ButtonCopyToClipboard.TabIndex = 5;
@@ -146,15 +152,15 @@ namespace salkodev.edms.admin
 			_GroupBoxDepartments.TabStop = false;
 			_GroupBoxDepartments.Text = "Departments";
 			// 
-			// _ButtonCreateDepartment
+			// _ButtonModifyDepartment
 			// 
-			_ButtonCreateDepartment.Location = new Point(6, 22);
-			_ButtonCreateDepartment.Name = "_ButtonCreateDepartment";
-			_ButtonCreateDepartment.Size = new Size(137, 23);
-			_ButtonCreateDepartment.TabIndex = 0;
-			_ButtonCreateDepartment.Text = "Create department";
-			_ButtonCreateDepartment.UseVisualStyleBackColor = true;
-			_ButtonCreateDepartment.Click += _ButtonCreateDepartment_Click;
+			_ButtonModifyDepartment.Location = new Point(233, 21);
+			_ButtonModifyDepartment.Name = "_ButtonModifyDepartment";
+			_ButtonModifyDepartment.Size = new Size(75, 23);
+			_ButtonModifyDepartment.TabIndex = 2;
+			_ButtonModifyDepartment.Text = "Modify";
+			_ButtonModifyDepartment.UseVisualStyleBackColor = true;
+			_ButtonModifyDepartment.Click += _ButtonModifyDepartment_Click;
 			// 
 			// _ButtonDeleteDepartment
 			// 
@@ -166,15 +172,52 @@ namespace salkodev.edms.admin
 			_ButtonDeleteDepartment.UseVisualStyleBackColor = true;
 			_ButtonDeleteDepartment.Click += _ButtonDeleteDepartment_Click;
 			// 
-			// _ButtonModifyDepartment
+			// _ButtonCreateDepartment
 			// 
-			_ButtonModifyDepartment.Location = new Point(233, 21);
-			_ButtonModifyDepartment.Name = "_ButtonModifyDepartment";
-			_ButtonModifyDepartment.Size = new Size(75, 23);
-			_ButtonModifyDepartment.TabIndex = 2;
-			_ButtonModifyDepartment.Text = "Modify";
-			_ButtonModifyDepartment.UseVisualStyleBackColor = true;
-			_ButtonModifyDepartment.Click += _ButtonModifyDepartment_Click;
+			_ButtonCreateDepartment.Location = new Point(6, 22);
+			_ButtonCreateDepartment.Name = "_ButtonCreateDepartment";
+			_ButtonCreateDepartment.Size = new Size(137, 23);
+			_ButtonCreateDepartment.TabIndex = 0;
+			_ButtonCreateDepartment.Text = "Create department";
+			_ButtonCreateDepartment.UseVisualStyleBackColor = true;
+			_ButtonCreateDepartment.Click += _ButtonCreateDepartment_Click;
+			// 
+			// _MenuStrip
+			// 
+			_MenuStrip.Items.AddRange(new ToolStripItem[] { _FileToolStripMenuItem, organizationsToolStripMenuItem });
+			_MenuStrip.Location = new Point(0, 0);
+			_MenuStrip.Name = "_MenuStrip";
+			_MenuStrip.Size = new Size(906, 24);
+			_MenuStrip.TabIndex = 11;
+			_MenuStrip.Text = "menuStrip1";
+			// 
+			// _FileToolStripMenuItem
+			// 
+			_FileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { _ExitToolStripMenuItem });
+			_FileToolStripMenuItem.Name = "_FileToolStripMenuItem";
+			_FileToolStripMenuItem.Size = new Size(37, 20);
+			_FileToolStripMenuItem.Text = "File";
+			// 
+			// _ExitToolStripMenuItem
+			// 
+			_ExitToolStripMenuItem.Name = "_ExitToolStripMenuItem";
+			_ExitToolStripMenuItem.Size = new Size(180, 22);
+			_ExitToolStripMenuItem.Text = "Exit";
+			_ExitToolStripMenuItem.Click += _ExitToolStripMenuItem_Click;
+			// 
+			// organizationsToolStripMenuItem
+			// 
+			organizationsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { _CreateTestOrgsToolStripMenuItem });
+			organizationsToolStripMenuItem.Name = "organizationsToolStripMenuItem";
+			organizationsToolStripMenuItem.Size = new Size(92, 20);
+			organizationsToolStripMenuItem.Text = "Organizations";
+			// 
+			// _CreateTestOrgsToolStripMenuItem
+			// 
+			_CreateTestOrgsToolStripMenuItem.Name = "_CreateTestOrgsToolStripMenuItem";
+			_CreateTestOrgsToolStripMenuItem.Size = new Size(180, 22);
+			_CreateTestOrgsToolStripMenuItem.Text = "Create test orgs...";
+			_CreateTestOrgsToolStripMenuItem.Click += _CreateTestOrgsToolStripMenuItem_Click;
 			// 
 			// FormMain
 			// 
@@ -188,11 +231,15 @@ namespace salkodev.edms.admin
 			Controls.Add(_TextBoxToken);
 			Controls.Add(_LabelLoggedStatus);
 			Controls.Add(_ButtonLogin);
+			Controls.Add(_MenuStrip);
+			MainMenuStrip = _MenuStrip;
 			Name = "FormMain";
 			Text = "SalkoDev.EDMS Administrator";
 			Load += _FormMain_Load;
 			_GroupBoxOrgs.ResumeLayout(false);
 			_GroupBoxDepartments.ResumeLayout(false);
+			_MenuStrip.ResumeLayout(false);
+			_MenuStrip.PerformLayout();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -212,5 +259,10 @@ namespace salkodev.edms.admin
 		private Button _ButtonDeleteDepartment;
 		private Button _ButtonCreateDepartment;
 		private Button _ButtonModifyDepartment;
+		private MenuStrip _MenuStrip;
+		private ToolStripMenuItem _FileToolStripMenuItem;
+		private ToolStripMenuItem _ExitToolStripMenuItem;
+		private ToolStripMenuItem organizationsToolStripMenuItem;
+		private ToolStripMenuItem _CreateTestOrgsToolStripMenuItem;
 	}
 }
