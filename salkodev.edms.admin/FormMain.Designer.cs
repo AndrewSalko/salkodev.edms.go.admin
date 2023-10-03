@@ -28,6 +28,7 @@ namespace salkodev.edms.admin
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
 			_ButtonLogin = new Button();
 			_LabelLoggedStatus = new Label();
 			_TextBoxToken = new TextBox();
@@ -201,7 +202,7 @@ namespace salkodev.edms.admin
 			// _ExitToolStripMenuItem
 			// 
 			_ExitToolStripMenuItem.Name = "_ExitToolStripMenuItem";
-			_ExitToolStripMenuItem.Size = new Size(180, 22);
+			_ExitToolStripMenuItem.Size = new Size(93, 22);
 			_ExitToolStripMenuItem.Text = "Exit";
 			_ExitToolStripMenuItem.Click += _ExitToolStripMenuItem_Click;
 			// 
@@ -215,7 +216,7 @@ namespace salkodev.edms.admin
 			// _CreateTestOrgsToolStripMenuItem
 			// 
 			_CreateTestOrgsToolStripMenuItem.Name = "_CreateTestOrgsToolStripMenuItem";
-			_CreateTestOrgsToolStripMenuItem.Size = new Size(180, 22);
+			_CreateTestOrgsToolStripMenuItem.Size = new Size(165, 22);
 			_CreateTestOrgsToolStripMenuItem.Text = "Create test orgs...";
 			_CreateTestOrgsToolStripMenuItem.Click += _CreateTestOrgsToolStripMenuItem_Click;
 			// 
@@ -232,6 +233,7 @@ namespace salkodev.edms.admin
 			Controls.Add(_LabelLoggedStatus);
 			Controls.Add(_ButtonLogin);
 			Controls.Add(_MenuStrip);
+			Icon = (Icon)resources.GetObject("$this.Icon");
 			MainMenuStrip = _MenuStrip;
 			Name = "FormMain";
 			Text = "SalkoDev.EDMS Administrator";
