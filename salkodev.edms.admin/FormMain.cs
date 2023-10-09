@@ -113,5 +113,11 @@ namespace salkodev.edms.admin
 			var massOrgsCreator = new Orgs.MassCreate.OrgCreator(this, this, _HttpClientHub, _Token);
 			massOrgsCreator.Perform();
 		}
+
+		private void _ViewOrganizationsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var orgViewer=new Orgs.OrgsViewer(this,this,_HttpClientHub, _Token);
+			orgViewer.Perform();
+		}
 	}
 }

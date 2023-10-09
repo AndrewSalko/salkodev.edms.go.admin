@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -33,6 +34,15 @@ namespace salkodev.edms.admin.BaseWeb
 				throw new NotImplementedException();
 			}
 		}
+
+		protected virtual string _URLPaginationPattern
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+		}
+
 
 		protected virtual string _URLModify
 		{
@@ -98,6 +108,23 @@ namespace salkodev.edms.admin.BaseWeb
 			}
 
 			var obj = JsonConvert.DeserializeObject<T>(jsonOrg);
+
+			return obj;
+		}
+
+		public T GetPage<T>(int page, int perPage)
+		{
+			string urlGetPage = string.Format(_URLPaginationPattern, page, perPage);
+
+			string url = WebRequestHelper.GetURL(_HttpClientHub.BaseURL, urlGetPage);
+			string json = WebRequestHelper.MakeGetRequest(_HttpClientHub.Client, url, out HttpStatusCode resultCode);
+
+			if (resultCode != HttpStatusCode.OK)
+			{
+				throw new ApplicationException(json);
+			}
+
+			var obj = JsonConvert.DeserializeObject<T>(json);
 
 			return obj;
 		}

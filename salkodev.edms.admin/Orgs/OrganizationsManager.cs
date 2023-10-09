@@ -22,6 +22,8 @@ namespace salkodev.edms.admin.Orgs
 		protected override string _URLModify => "orgs/modify";
 		protected override string _URLReadPattern => "orgs/{0}";
 
+		protected override string _URLPaginationPattern => "orgs?page={0}&per_page={1}";
+
 		/// <summary>
 		/// Створити організацію
 		/// </summary>

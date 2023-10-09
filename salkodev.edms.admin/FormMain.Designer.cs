@@ -47,6 +47,7 @@ namespace salkodev.edms.admin
 			_ExitToolStripMenuItem = new ToolStripMenuItem();
 			organizationsToolStripMenuItem = new ToolStripMenuItem();
 			_CreateTestOrgsToolStripMenuItem = new ToolStripMenuItem();
+			_ViewOrganizationsToolStripMenuItem = new ToolStripMenuItem();
 			_GroupBoxOrgs.SuspendLayout();
 			_GroupBoxDepartments.SuspendLayout();
 			_MenuStrip.SuspendLayout();
@@ -208,7 +209,7 @@ namespace salkodev.edms.admin
 			// 
 			// organizationsToolStripMenuItem
 			// 
-			organizationsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { _CreateTestOrgsToolStripMenuItem });
+			organizationsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { _CreateTestOrgsToolStripMenuItem, _ViewOrganizationsToolStripMenuItem });
 			organizationsToolStripMenuItem.Name = "organizationsToolStripMenuItem";
 			organizationsToolStripMenuItem.Size = new Size(92, 20);
 			organizationsToolStripMenuItem.Text = "Organizations";
@@ -216,9 +217,16 @@ namespace salkodev.edms.admin
 			// _CreateTestOrgsToolStripMenuItem
 			// 
 			_CreateTestOrgsToolStripMenuItem.Name = "_CreateTestOrgsToolStripMenuItem";
-			_CreateTestOrgsToolStripMenuItem.Size = new Size(165, 22);
+			_CreateTestOrgsToolStripMenuItem.Size = new Size(180, 22);
 			_CreateTestOrgsToolStripMenuItem.Text = "Create test orgs...";
 			_CreateTestOrgsToolStripMenuItem.Click += _CreateTestOrgsToolStripMenuItem_Click;
+			// 
+			// _ViewOrganizationsToolStripMenuItem
+			// 
+			_ViewOrganizationsToolStripMenuItem.Name = "_ViewOrganizationsToolStripMenuItem";
+			_ViewOrganizationsToolStripMenuItem.Size = new Size(180, 22);
+			_ViewOrganizationsToolStripMenuItem.Text = "View organizations";
+			_ViewOrganizationsToolStripMenuItem.Click += _ViewOrganizationsToolStripMenuItem_Click;
 			// 
 			// FormMain
 			// 
@@ -266,5 +274,6 @@ namespace salkodev.edms.admin
 		private ToolStripMenuItem _ExitToolStripMenuItem;
 		private ToolStripMenuItem organizationsToolStripMenuItem;
 		private ToolStripMenuItem _CreateTestOrgsToolStripMenuItem;
+		private ToolStripMenuItem _ViewOrganizationsToolStripMenuItem;
 	}
 }
