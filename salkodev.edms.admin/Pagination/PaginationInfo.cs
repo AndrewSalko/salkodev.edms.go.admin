@@ -20,6 +20,13 @@ namespace salkodev.edms.admin.Pagination
 			set;
 		}
 
+		[JsonProperty("total_pages")]
+		public int TotalPages
+		{
+			get;
+			set;
+		}
+
 		[JsonProperty("current_page")]
 		public int CurrentPage
 		{
